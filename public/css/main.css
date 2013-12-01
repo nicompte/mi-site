@@ -19,5 +19,25 @@ a:hover {
   font-size: 2.5em;
 }
 .links i {
-  margin-left: 5px;
+  margin-left: 10px;
+}
+.header-block {
+  margin-bottom: 400px;
+}
+.footer {
+  text-align: center;
+  padding: 20px 0;
+}
+.desc {
+  background-color: #e5e9ea;
+  color: #222222;
+  padding: 10px;
+  padding-top: 40px;
+}
+.desc .col-xs-5 h4 {
+  martin-top: 20px;
+  color: #428bca;
+}
+.desc .img-block {
+  padding: 0;
 }
