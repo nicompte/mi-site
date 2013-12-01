@@ -1,0 +1,22 @@
+{
+  "name": "barbotte-site",
+  "version": "1.0.0",
+  "description": "Barbotte",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.6",
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-contrib-less": "~0.5.0rc7",
+    "grunt-slim": "~0.1.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.2.0"
+  }
+}

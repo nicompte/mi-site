@@ -1,0 +1,14 @@
+doctype html
+html data-ng-app="barbotte"
+  head
+    meta charset="utf-8"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    title= locals[:title] || 'Mi'
+    link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet" type="text/css"
+    link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+    link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css"
+    link href="/css/main.css" rel="stylesheet" type="text/css"
+
+  body
+    / Content
+    .content == yield

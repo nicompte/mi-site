@@ -1,0 +1,23 @@
+body {
+  background-color: #428bca;
+  color: white;
+}
+a {
+  color: white;
+}
+a:hover {
+  color: white;
+}
+.header {
+  font-size: 8em;
+  margin-top: 250px;
+}
+.header i {
+  margin-right: 10px;
+}
+.links {
+  font-size: 2.5em;
+}
+.links i {
+  margin-left: 5px;
+}
