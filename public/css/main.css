@@ -10,7 +10,7 @@ a:hover {
 }
 .header {
   font-size: 8em;
-  margin-top: 250px;
+  margin-top: 200px;
 }
 .header i {
   margin-right: 10px;
@@ -22,14 +22,16 @@ a:hover {
   margin-left: 10px;
 }
 .header-block {
-  margin-bottom: 400px;
+  margin-bottom: 200px;
 }
 .footer {
   text-align: center;
   padding: 20px 0;
 }
-.desc {
+.info {
   background-color: #e5e9ea;
+}
+.desc {
   color: #222222;
   padding: 10px;
   padding-top: 40px;
@@ -40,4 +42,16 @@ a:hover {
 }
 .desc .img-block {
   padding: 0;
+}
+.desc.needs-margin {
+  padding-bottom: 50px;
+}
+.desc.needs-margin img {
+  box-shadow: 0px 0px 50px 10px #656565;
+  max-width: 450px;
+}
+.separator {
+  border-top: solid 1px #BBB;
+  width: 60%;
+  margin: auto;
 }
