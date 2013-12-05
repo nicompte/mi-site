@@ -1,3 +1,5 @@
+require 'mongoid'
+
 class Person
   include Mongoid::Document
   field :email, type: String

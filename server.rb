@@ -6,6 +6,11 @@ require 'newrelic_rpm'
 
 require './model.rb'
 
+require 'mongoid'
+
+Mongoid.load!("config/mongoid.yml", :production)
+
+
 before do
   content_type :html, 'charset' => 'utf-8'
 end
