@@ -4,12 +4,28 @@ require 'sinatra'
 require 'slim'
 require 'newrelic_rpm'
 
+require './model.rb'
+
 before do
   content_type :html, 'charset' => 'utf-8'
 end
 
 get '/ping' do
   'ok'
+end
+
+get '/login' do
+  slim :login
+end
+
+get '/register' do
+  slim :register
+end
+
+post '/register' do
+  User.create(
+    params[:user]
+  )
 end
 
 get '/*/?' do
