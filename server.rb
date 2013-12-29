@@ -28,6 +28,7 @@ post 'login' do
   @user = User.where(:email => params[:email])
   if @user.exists? && @user.password == params[:password]
     session[:user] = @user
+    redirect "/user/#{@user.id}"
   else
     redirect '/login'
   end
