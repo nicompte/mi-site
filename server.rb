@@ -23,9 +23,9 @@ get '/ping' do
   'ok'
 end
 
-get '/login' do
-  slim :login
-end
+#  get '/login' do
+#    slim :login
+#  end
 
 get '/register' do
   slim :register
