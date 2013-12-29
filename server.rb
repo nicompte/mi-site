@@ -29,9 +29,8 @@ get '/register' do
 end
 
 get '/users' do
-  User.each do |user|
-    p user.name
-  end
+  @users = User.all
+  slim :users
 end
 
 post '/register' do
