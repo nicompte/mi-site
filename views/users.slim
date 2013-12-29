@@ -2,6 +2,6 @@ h1 Utilisateurs
 -if @users.any?
   ul.users
   - @users.each do |user|
-    p #{user.email}
+    a(href="/user/#{user.id}") #{user.email}
 - else
-  p No users here!
+  p Aucun utilisateur.

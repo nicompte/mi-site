@@ -33,6 +33,11 @@ get '/users' do
   slim :users
 end
 
+get '/user/:id' do
+  @user = User.find(params[:id])
+  slim :home
+end
+
 post '/register' do
   User.create(
     params[:user]
