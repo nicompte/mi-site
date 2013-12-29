@@ -7,13 +7,10 @@ require 'newrelic_rpm'
 require './model.rb'
 
 require 'mongoid'
-require 'sinatra-authentication'
 
 Mongoid.load!("config/mongoid.yml", :production)
 
-use Rack::Session::Cookie, :secret => 'A1 sauce 1s so good you should use 1t on a11 yr st34ksssss'
-
-#enable :sessions
+enable :sessions
 
 before do
   content_type :html, 'charset' => 'utf-8'
@@ -23,9 +20,9 @@ get '/ping' do
   'ok'
 end
 
-#  get '/login' do
-#    slim :login
-#  end
+get '/login' do
+  slim :login
+end
 
 get '/register' do
   slim :register
