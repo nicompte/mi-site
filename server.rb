@@ -24,6 +24,15 @@ get '/login' do
   slim :login
 end
 
+post 'login' do
+  @user = User.where(:email => params[:email])
+  if @user.exists? && @user.password == params[:password]
+    session[:user] = @user
+  else
+    redirect '/login'
+  end
+end
+
 get '/register' do
   slim :register
 end
@@ -34,6 +43,9 @@ get '/users' do
 end
 
 get '/user/:id' do
+  if session[:user].nil?
+    redirect '/login'
+  end
   @user = User.find(params[:id])
   slim :home
 end
