@@ -2,6 +2,6 @@ h1 Utilisateurs
 -if @users.any?
   ul.users
   - @users.each do |user|
-    p user.name
+    p #{user.name}
 - else
   p No users here!
