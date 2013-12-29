@@ -1,7 +1,7 @@
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: 'mongodb://heroku_app19976460:431fafvrhv72ctlicl16rm5op@ds057538.mongolab.com:57538/heroku_app19976460'
       options:
         safe: true
         skip_version_check: true
