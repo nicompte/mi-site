@@ -591,3 +591,11 @@
 [12/31/13 12:30:35 +0100 Lennie.local (6426)] INFO : Installing Net instrumentation
 [12/31/13 12:30:35 +0100 Lennie.local (6426)] INFO : Installing Sinatra instrumentation
 [12/31/13 12:30:35 +0100 Lennie.local (6426)] INFO : Finished instrumentation
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] ERROR : Unable to read configuration file : no implicit conversion of nil into String
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] INFO : Environment: development
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] INFO : Dispatcher: sinatra
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] INFO : Application: development
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] WARN : No license key found in newrelic.yml config. This often means your newrelic.yml is missing a section for the running environment 'development'
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] INFO : Installing Net instrumentation
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] INFO : Installing Sinatra instrumentation
+[12/31/13 14:34:10 +0100 Lennie.local (7173)] INFO : Finished instrumentation

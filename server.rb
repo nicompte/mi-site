@@ -98,10 +98,14 @@ get '/users/find' do
 end
 
 post '/register' do
-  User.create(
-    params[:user]
-  )
-  redirect '/login'
+  unless User.where(email: params[:user]["email"]).exists?
+    User.create(
+      params[:user]
+    )
+    redirect '/login'
+  else
+    redirect '/register?message=taken'
+  end
 end
 
 get '/*/?' do
