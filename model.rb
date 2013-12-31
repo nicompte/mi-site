@@ -5,7 +5,7 @@ class User
   field :email, type: String
   field :password, type: String
   embeds_many :pictures
-  has_many :users
+  has_and_belongs_to_many :contacts, :class_name => 'User'
 end
 
 class Picture

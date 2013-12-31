@@ -1,6 +1,41 @@
-form action="/register" method="post"
-  label Email
-  input name="user[email]"
-  label Password
-  input type="password" name="user[password]"
-  button type="submit" class="btn btn-default" Ok
+.small-header
+  h2
+    a href="/"
+      i.fa.fa-camera-retro
+      | Mi
+
+.main.row
+
+  .col-xs-5.col-xs-offset-1
+
+    h2 Enregistrement
+    p
+      | Veuillez saisir vos informations.
+
+    form action="/register" method="post"
+      .form-group
+        label for="email"
+          | Email
+          span.required *
+        input.form-control name="user[email]" id="email" required="required"
+      .form-group
+        label for="first_name"
+          | Prénom
+          span.required *
+        input.form-control name="user[first_name]" id="first_name" required="required"
+      .form-group
+        label for="last_name"
+          | Nom
+          span.required *
+        input.form-control name="user[last_name]" id="last_name" required="required"
+      .form-group
+        label for="password"
+          | Password
+          span.required *
+        input.form-control type="password" name="user[password]" id="password" required="required"
+      button type="submit" class="btn btn-default" Ok
+
+.push
+
+.footer
+  span Copyright Sarbotte Designs ©

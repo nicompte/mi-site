@@ -13,6 +13,18 @@
   .bottom
     i.fa.fa-chevron-down.fa-3x
 
+  ul.user-block.list-inline
+    - if session.nil? || session[:user].nil?
+      li
+        a href="/login" Connexion
+      li
+        a href="/register" Inscription
+    - else
+      li
+        a href="/home"= session[:user][:first_name] + " " + session[:user][:last_name]
+      li
+        a href="/logout" Déconnexion
+
 .info
   .desc.row
     .col-xs-5.col-xs-offset-1

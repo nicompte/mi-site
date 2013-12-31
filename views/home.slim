@@ -1,2 +1,40 @@
-h1 Bienvenue
-h2= @user.email
+.small-header
+  h2
+    a href="/"
+      i.fa.fa-camera-retro
+      | Mi
+  - unless session.nil? || session[:user].nil?
+    ul.user-block.list-inline
+      li
+        a href="/home"= session[:user][:first_name] + " " + session[:user][:last_name]
+      li
+        a href="/logout" Déconnexion
+
+.main.row
+
+  .col-xs-5.col-xs-offset-1
+    h2 Bienvenue #{@user.first_name}
+
+    h3 Vos contacts
+
+    ul.list-inline
+      - unless @user.contacts.nil? or @user.contacts.length == 0
+        - @user.contacts.each do |contact|
+          li= contact.email
+
+    h3 Ajouter un contact
+
+    form action="/user/#{session[:user][:_id]}/add_contact" method="post"
+      .form-group
+        label for="contacts" Adresses email des contacts à ajouter
+        input type="text" name="contacts" id="contacts"
+
+      button type="submit" class="btn btn-default" Ok
+
+.footer
+  span Copyright Sarbotte Designs ©
+
+script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"
+script src="/scripts/selectize.min.js" type="text/javascript"
+
+script src="/scripts/contacts.js" type="text/javascript"

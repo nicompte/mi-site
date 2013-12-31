@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'sinatra'
+require "json"
 require 'slim'
 require 'newrelic_rpm'
 
@@ -24,14 +25,19 @@ get '/login' do
   slim :login
 end
 
-post 'login' do
-  @user = User.where(:email => params[:email])
-  if @user.exists? && @user.password == params[:password]
-    session[:user] = @user
-    redirect "/user/#{@user.id}"
+post '/login' do
+  @user = User.where(email: params[:user]["email"])
+  if @user.exists? && @user.first[:password] == params[:user]["password"]
+    session[:user] = @user.first
+    redirect "/home"
   else
     redirect '/login'
   end
+end
+
+get '/logout' do
+  session[:user] = nil
+  redirect "/"
 end
 
 get '/register' do
@@ -43,12 +49,29 @@ get '/users' do
   slim :users
 end
 
-get '/user/:id' do
+get '/home' do
   if session[:user].nil?
     redirect '/login'
   end
-  @user = User.find(params[:id])
+  @user = User.find(session[:user][:_id])
   slim :home
+end
+
+post '/user/:id/add_contact' do |id|
+  if session[:user].nil?
+    redirect '/login'
+  end
+  user = User.find(id)
+  params[:contacts].split(',').each do |contact|
+    user.contacts.push(User.find(contact))
+  end
+  redirect '/home'
+end
+
+get '/users/find' do
+  puts params[:q]
+  content_type :json
+  User.where(email: Regexp.new(params[:q])).to_json
 end
 
 post '/register' do

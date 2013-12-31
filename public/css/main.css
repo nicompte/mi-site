@@ -8,6 +8,14 @@ a {
 a:hover {
   color: white;
 }
+form .btn {
+  margin-top: 15px;
+}
+form .required {
+  color: #ff5500;
+  padding-left: 3px;
+  font-size: 0.9em;
+}
 .header {
   font-size: 8em;
   margin-top: 200px;
@@ -31,11 +39,22 @@ a:hover {
   width: 100%;
   text-align: center;
 }
+.user-block {
+  font-size: 1.1em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.user-block a,
+.user-block a:hover {
+  text-decoration: none;
+}
 .footer {
   text-align: center;
   padding: 20px 0;
 }
-.info {
+.info,
+.main {
   background-color: #e5e9ea;
 }
 .row {
@@ -65,4 +84,29 @@ a:hover {
   border-top: solid 1px #BBB;
   width: 60%;
   margin: auto;
+}
+.main {
+  color: #222222;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+.small-header {
+  padding: 0 20px;
+}
+.small-header i {
+  margin-right: 10px;
+}
+.small-header a,
+.small-header a:hover {
+  text-decoration: none;
+}
+.selectize-control .description {
+  font-size: 12px;
+  display: block;
+  color: #a0a0a0;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
