@@ -50,21 +50,44 @@ get '/users' do
 end
 
 get '/home' do
-  if session[:user].nil?
-    redirect '/login'
-  end
+  redirect '/login' if session[:user].nil?
   @user = User.find(session[:user][:_id])
   slim :home
 end
 
 post '/user/:id/add_contact' do |id|
-  if session[:user].nil?
-    redirect '/login'
-  end
+  redirect '/login' if session[:user].nil?
   user = User.find(id)
   params[:contacts].split(',').each do |contact|
-    user.contacts.push(User.find(contact))
+    User.find(contact).pendingContacts.push(user)
   end
+  redirect '/home'
+end
+
+get '/user/:id/validate_contact/:contact_id' do |id, contact_id|
+  redirect '/login' if session[:user].nil?
+  user = User.find(id)
+  contact = User.find(contact_id)
+  user.pendingContacts.delete(contact)
+  contact.contacts.push(user)
+  user.contacts.push(contact)
+  redirect '/home'
+end
+
+get '/user/:id/refuse_contact/:contact_id' do |id, contact_id|
+  redirect '/login' if session[:user].nil?
+  user = User.find(id)
+  contact = User.find(contact_id)
+  user.pendingContacts.delete(contact)
+  redirect '/home'
+end
+
+get '/user/:id/remove_contact/:contact_id' do |id, contact_id|
+  redirect '/login' if session[:user].nil?
+  user = User.find(id)
+  contact = User.find(contact_id)
+  user.contacts.delete(contact)
+  contact.contacts.delete(user)
   redirect '/home'
 end
 

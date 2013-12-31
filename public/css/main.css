@@ -8,9 +8,6 @@ a {
 a:hover {
   color: white;
 }
-form .btn {
-  margin-top: 15px;
-}
 form .required {
   color: #ff5500;
   padding-left: 3px;
@@ -109,4 +106,7 @@ form .required {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+ul .label {
+  margin-left: 5px;
 }

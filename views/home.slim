@@ -17,17 +17,35 @@
 
     h3 Vos contacts
 
-    ul.list-inline
-      - unless @user.contacts.nil? or @user.contacts.length == 0
+
+    - unless @user.contacts.nil? or @user.contacts.length == 0
+      ul
         - @user.contacts.each do |contact|
-          li= contact.email
+          li
+            | #{contact.first_name + ' ' + contact.last_name + ' ' + contact.email}
+            a.label.label-danger href="/user/#{@user.id}/remove_contact/#{contact.id}" Supprimer
+    - else
+      p Aucun contact.
+
+    h3 Vos demandes de contact
+
+    - unless @user.pendingContacts.nil? or @user.pendingContacts.length == 0
+      ul
+        - @user.pendingContacts.each do |contact|
+          li
+            | #{contact.first_name + ' ' + contact.last_name + ' ' + contact.email}
+            a.label.label-success href="/user/#{@user.id}/validate_contact/#{contact.id}" Valider
+            a.label.label-danger href="/user/#{@user.id}/refuse_contact/#{contact.id}" Refuser
+    - else
+      p Aucune demande de contact.
 
     h3 Ajouter un contact
 
     form action="/user/#{session[:user][:_id]}/add_contact" method="post"
+
       .form-group
         label for="contacts" Adresses email des contacts à ajouter
-        input type="text" name="contacts" id="contacts"
+        input.form-control type="text" name="contacts" id="contacts"
 
       button type="submit" class="btn btn-default" Ok
 
