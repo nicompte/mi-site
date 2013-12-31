@@ -101,6 +101,7 @@ post '/register' do
   User.create(
     params[:user]
   )
+  redirect '/login'
 end
 
 get '/*/?' do
